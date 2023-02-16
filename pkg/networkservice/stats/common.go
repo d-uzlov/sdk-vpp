@@ -74,6 +74,9 @@ func retrieveMetrics(ctx context.Context, statsConn *core.StatsConnection, segme
 }
 
 func initFunc(chainCtx context.Context, statsSocket string) (*core.StatsConnection, error) {
+	log.FromContext(chainCtx).Errorf("skipping initFunc")
+	return nil, nil
+
 	if statsSocket == "" {
 		statsSocket = adapter.DefaultStatsSocket
 	}
