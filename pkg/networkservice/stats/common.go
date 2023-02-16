@@ -39,6 +39,7 @@ import (
 
 // Save retrieved vpp interface metrics in pathSegment
 func retrieveMetrics(ctx context.Context, statsConn *core.StatsConnection, segment *networkservice.PathSegment, isClient bool) {
+	log.FromContext(ctx).Errorf("skipping retrieveMetrics")
 	return
 
 	swIfIndex, ok := ifindex.Load(ctx, isClient)
@@ -74,7 +75,7 @@ func retrieveMetrics(ctx context.Context, statsConn *core.StatsConnection, segme
 }
 
 func initFunc(chainCtx context.Context, statsSocket string) (*core.StatsConnection, error) {
-	log.FromContext(chainCtx).Errorf("skipping initFunc")
+	log.L().Errorf("skipping initFunc")
 	return nil, nil
 
 	if statsSocket == "" {
