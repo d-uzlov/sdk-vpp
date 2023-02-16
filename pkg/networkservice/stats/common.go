@@ -39,6 +39,8 @@ import (
 
 // Save retrieved vpp interface metrics in pathSegment
 func retrieveMetrics(ctx context.Context, statsConn *core.StatsConnection, segment *networkservice.PathSegment, isClient bool) {
+	return
+
 	swIfIndex, ok := ifindex.Load(ctx, isClient)
 	if !ok {
 		return
