@@ -38,6 +38,8 @@ type Connection interface {
 }
 
 func setRxMode(ctx context.Context, vppConn Connection, swIfIndex interface_types.InterfaceIndex) error {
+	return nil
+
 	apiChannel, err := vppConn.NewAPIChannelBuffered(256, 256)
 	if err != nil {
 		return errors.Wrap(err, "failed to get new channel for communication with VPP via govpp core")
