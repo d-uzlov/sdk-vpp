@@ -156,7 +156,7 @@ func NewServer(ctx context.Context, tokenGenerator token.GeneratorFunc, vppConn 
 						),
 						kernel.NewClient(vppConn),
 						vxlan.NewClient(vppConn, tunnelIP, opts.vxlanOpts...),
-						wireguard.NewClient(vppConn, tunnelIP),
+						// wireguard.NewClient(vppConn, tunnelIP),
 						ipsec.NewClient(vppConn, tunnelIP),
 						vlan.NewClient(vppConn, opts.domain2Device),
 						filtermechanisms.NewClient(),
