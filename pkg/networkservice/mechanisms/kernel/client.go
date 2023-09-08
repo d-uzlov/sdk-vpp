@@ -20,20 +20,20 @@
 package kernel
 
 import (
-	"os"
+	// "os"
 
 	"go.fd.io/govpp/api"
 
 	"github.com/networkservicemesh/api/pkg/api/networkservice"
 
-	"github.com/networkservicemesh/sdk-vpp/pkg/networkservice/mechanisms/kernel/kerneltap"
+	// "github.com/networkservicemesh/sdk-vpp/pkg/networkservice/mechanisms/kernel/kerneltap"
 	"github.com/networkservicemesh/sdk-vpp/pkg/networkservice/mechanisms/kernel/kernelvethpair"
 )
 
 // NewClient - returns a new Client chain element implementing the kernel mechanism with vpp
 func NewClient(vppConn api.Connection) networkservice.NetworkServiceClient {
-	if _, err := os.Stat(vnetFilename); err == nil {
-		return kerneltap.NewClient(vppConn)
-	}
+	// if _, err := os.Stat(vnetFilename); err == nil {
+	// 	return kerneltap.NewClient(vppConn)
+	// }
 	return kernelvethpair.NewClient(vppConn)
 }
